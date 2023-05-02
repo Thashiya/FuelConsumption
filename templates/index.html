@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Consumptiom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login">
+        <h1>Predict CO2 Emission of Vehicles</h1>
+        <h3>Enter the following values to predict the CO2 emmision from the vehicle</h3>
+
+        <!--MAIN INPUT FOR RECEIVING QUERY TO OUR ML-->
+
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
+            <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
+            <input type="text" name="fuel" placeholder="Fuel" required="required" />
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+        <br>
+        <br>
+        {{ prediction_text }}
+    </div>
+    
+</body>
+</html>
